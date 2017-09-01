@@ -1,0 +1,64 @@
+body {
+  font-family: 'Merriweather Sans', sans-serif;
+  background-color: black;
+}
+.left {
+  float: left;
+}
+.jumbotron {
+  background-color: maroon;
+}
+.header.jumbotron {
+  padding: 24px;
+}
+.header h1 {
+  text-align: center;
+  margin: 0;
+  color: white;
+}
+.box {
+  border-radius: 5px;
+  text-align: center;
+  padding: 15px;
+  width:100%;
+}
+.box01 {
+  background-color: lightgray;
+  height: 150px;
+}
+.box02 {
+  background-color: gray;
+  color: white;
+}
+.crystal {
+  margin-top: 20px;
+  display: block;
+  padding: 20px;
+  width: 60%;
+  background-color: white;
+  border-radius: 5px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.gem {
+  margin: 0 auto;
+  display: block;
+}
+.row03 {
+  margin-top: 30px;
+}
+.row04 {
+  margin: 30px 0;
+  display: inline-block;
+  width: 100%;
+}
+.copyright {
+  width: 100%;
+  background-color: maroon;
+  border-radius: 5px;
+}
+.copyright p {
+  color: white;
+  text-align: center;
+  padding: 30px;
+}
