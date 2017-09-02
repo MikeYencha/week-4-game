@@ -3,11 +3,8 @@
 var mainRandom = Math.floor(Math.random() * 101) + 19 ; //
 var win = 0;
 var loss = 0;
-var guess = '';
 var crystalValue = '';
 var sum = 0;
-var val = '';
-var click = 0;
 
 $(document).ready(function() {
 
@@ -17,6 +14,12 @@ $(document).ready(function() {
   }
   function sumDisplay() {
     $('.user-display').html(sum);
+  }
+  function computerWin() {
+    $('.losses').html(loss);
+  }
+  function youWin() {
+    $('.wins').html(win);
   }
   // display sum of user guesses in the user-display
   // click event
@@ -38,8 +41,14 @@ $(document).ready(function() {
       } else if ((crystalValue > 0) && (crystalValue == mainRandom)){
         win++;
       }
-      $('.wins').html(win);
-      $('.losses').html(loss);
+      if(win == 1) {
+        alert('You Win');
+        youWin();
+      }
+      if(loss == 1) {
+        alert('You Lose');
+        computerWin();
+      }
     });
 
   // starts game with computer random number set and displayed
