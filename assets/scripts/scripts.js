@@ -1,8 +1,6 @@
 
 // global variables
-
-var mainRandom = Math.floor(Math.random() * 101) + 19 ;
-console.log(mainRandom);
+var mainRandom = Math.floor(Math.random() * 101) + 19 ; //
 var win = 0;
 var loss = 0;
 var guess = '';
@@ -17,10 +15,10 @@ $(document).ready(function() {
   function computerMatch() {
     $('.computer-display').html(mainRandom);
   }
-  // display sum of user guesses in the user-display
   function sumDisplay() {
     $('.user-display').html(sum);
   }
+  // display sum of user guesses in the user-display
   // click event
   $('.crystal').on('click', function(e) {
     if(this.value == 0 ) {
@@ -29,22 +27,24 @@ $(document).ready(function() {
     }
     // continually adds click value to sum value
       sum += Number($(this).val());
+    // console log crystalValue for testing
+      console.log(this.value);
     // adds sum value to user-display
       sumDisplay();
+      crystalValue = sum;
+      // evaluate if crystalValue and computer number match and wind or loss is calculated
+      if((crystalValue >= 0) && (crystalValue !== mainRandom)) {
+        loss++;
+      } else {
+        win++;
+      }
+      $('.wins').html(win);
+      $('.losses').html(loss);
     });
 
   // starts game with computer random number set and displayed
   computerMatch();
-
-
-  //   if((sum > 0) && (sum !== mainRandom)) {
-  //     loss++;
-  //   } else {
-  //     win++;
-  //   }
-  //   $('.wins').html(win);
-  //   $('.losses').html(loss);
-  // })
+});
 
   // evaluate();
   // function evaluate() {
@@ -54,17 +54,3 @@ $(document).ready(function() {
   //   }
   // }
   // set value of each crystal
-
-
-
-
-
-
-
-
-  // sum +(= this.value;
-    // $('.user-display').html(sum);
-  //capture the value of crystal on click into var
-
-
-});
