@@ -33,9 +33,9 @@ $(document).ready(function() {
       sumDisplay();
       crystalValue = sum;
       // evaluate if crystalValue and computer number match and wind or loss is calculated
-      if((crystalValue >= 0) && (crystalValue !== mainRandom)) {
+      if((crystalValue > 0) && (crystalValue > mainRandom)) {
         loss++;
-      } else {
+      } else if ((crystalValue > 0) && (crystalValue == mainRandom)){
         win++;
       }
       $('.wins').html(win);
