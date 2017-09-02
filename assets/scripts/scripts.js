@@ -11,36 +11,40 @@ var sum = 0;
 var val = '';
 var click = 0;
 
-
-
 $(document).ready(function() {
-  // set starting value for computer match
 
+  // set starting value for computer match
   function computerMatch() {
     $('.computer-display').html(mainRandom);
   }
+  // display sum of user guesses in the user-display
   function sumDisplay() {
     $('.user-display').html(sum);
   }
+  // click event
   $('.crystal').on('click', function(e) {
-
     if(this.value == 0 ) {
       //sets value of click to random number between 1
       this.value = Math.floor(Math.random() * 12) + 1;
     }
+    // continually adds click value to sum value
       sum += Number($(this).val());
+    // adds sum value to user-display
       sumDisplay();
-    if((sum > 0) && (sum !== mainRandom)) {
-      loss++;
-    } else {
-      win++;
-    }
-    $('.wins').html(win);
-    $('.losses').html(loss);
-  })
+    });
+
+  // starts game with computer random number set and displayed
   computerMatch();
 
 
+  //   if((sum > 0) && (sum !== mainRandom)) {
+  //     loss++;
+  //   } else {
+  //     win++;
+  //   }
+  //   $('.wins').html(win);
+  //   $('.losses').html(loss);
+  // })
 
   // evaluate();
   // function evaluate() {
