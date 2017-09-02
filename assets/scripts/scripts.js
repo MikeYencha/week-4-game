@@ -57,7 +57,6 @@ $(document).ready(function() {
   $('.crystal').on('click', function(e) {
     if(this.value == 0 ) {
       //sets value of click to random number between 1
-      console.log(this);  // console log for testing
       this.value = Math.floor(Math.random() * 12) + 1;
     }
       // calculates sum value
