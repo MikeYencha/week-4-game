@@ -1,4 +1,3 @@
-
 // global variables
 var mainRandom = Math.floor(Math.random() * 101) + 19 ; //
 var win = 0;
@@ -17,9 +16,9 @@ $(document).ready(function() {
     $('.user-display').html(sum);
   }
   // calculates the sum of the button values on each click
-  function calculateSum() {
-    sum += Number($('button').val());
-  }
+  // function calculateSum() {
+  //   sum += Number($('button').val());
+  // }
   // sets loss value in html
   function computerWin() {
     $('.losses').html(loss);
@@ -62,7 +61,7 @@ $(document).ready(function() {
       this.value = Math.floor(Math.random() * 12) + 1;
     }
       // calculates sum value
-      calculateSum()
+      sum += Number($(this).val());
       console.log(this.value); // console log for testing
       // sets sum value in html
       sumDisplay();
