@@ -21,7 +21,14 @@ $(document).ready(function() {
   function youWin() {
     $('.wins').html(win);
   }
-  // display sum of user guesses in the user-display
+  function evaluate() {
+    if((crystalValue > 0) && (crystalValue > mainRandom)) {
+      loss++;
+    } else if ((crystalValue > 0) && (crystalValue == mainRandom)){
+      win++;
+    }
+  }
+
   // click event
   $('.crystal').on('click', function(e) {
     if(this.value == 0 ) {
@@ -33,14 +40,9 @@ $(document).ready(function() {
     // console log crystalValue for testing
       console.log(this.value);
     // adds sum value to user-display
-      sumDisplay();
       crystalValue = sum;
-      // evaluate if crystalValue and computer number match and wind or loss is calculated
-      if((crystalValue > 0) && (crystalValue > mainRandom)) {
-        loss++;
-      } else if ((crystalValue > 0) && (crystalValue == mainRandom)){
-        win++;
-      }
+      sumDisplay();
+      evaluate();
       if(win == 1) {
         alert('You Win');
         youWin();
