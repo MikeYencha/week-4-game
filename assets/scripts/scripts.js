@@ -7,6 +7,8 @@ var sum = 0;
 
 $(document).ready(function() {
 
+// available functions
+
   // set starting value for computer match
   function computerMatch() {
     $('.computer-display').html(mainRandom);
@@ -15,10 +17,6 @@ $(document).ready(function() {
   function sumDisplay() {
     $('.user-display').html(sum);
   }
-  // calculates the sum of the button values on each click
-  // function calculateSum() {
-  //   sum += Number($('button').val());
-  // }
   // sets loss value in html
   function computerWin() {
     $('.losses').html(loss);
@@ -47,6 +45,7 @@ $(document).ready(function() {
       computerWin();
     }
   }
+
   // reset function that isn't working damn it
   function reset () {
     $(".computer-display").html(mainRandom);
@@ -56,7 +55,7 @@ $(document).ready(function() {
   // click event starts game
   $('.crystal').on('click', function(e) {
     if(this.value == 0 ) {
-      //sets value of click to random number between 1
+      //sets value of click to random number between 1 and 12
       this.value = Math.floor(Math.random() * 12) + 1;
     }
       // calculates sum value
@@ -69,6 +68,6 @@ $(document).ready(function() {
       //establishes win or lose
       winOrLose();
     });
-  // starts game with coputer value displayed
+  // starts game with computer value displayed
   computerMatch();
 });
