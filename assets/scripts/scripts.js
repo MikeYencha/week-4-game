@@ -22,14 +22,14 @@ $(document).ready(function() {
   function sumDisplay() {
     $('.user-display').html(sum);
   }
-  $('.crystal').click(function() {
-    sum;
+  $('.crystal').on('click', function(e) {
+
     if(this.value == 0 ) {
+      //sets value of click to random number between 1
       this.value = Math.floor(Math.random() * 12) + 1;
-      console.log(this.value)
+    }
       sum += Number($(this).val());
       sumDisplay();
-    } 
     if((sum > 0) && (sum !== mainRandom)) {
       loss++;
     } else {
@@ -38,17 +38,17 @@ $(document).ready(function() {
     $('.wins').html(win);
     $('.losses').html(loss);
   })
+  computerMatch();
 
+
+
+  // evaluate();
   // function evaluate() {
   //   if((sum !== mainRandom) && (click === 4)) {
   //     win++;
   //     $('.wins').html(1);
   //   }
   // }
-  computerMatch();
-  // evaluate();
-
-
   // set value of each crystal
 
 
