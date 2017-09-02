@@ -12,56 +12,65 @@ $(document).ready(function() {
   function computerMatch() {
     $('.computer-display').html(mainRandom);
   }
+  // sets click value in html
   function sumDisplay() {
     $('.user-display').html(sum);
   }
+  // calculates the sum of the button values on each click
+  function calculateSum() {
+    sum += Number($('button').val());
+  }
+  // sets loss value in html
   function computerWin() {
     $('.losses').html(loss);
   }
+  // sets win value in html
   function youWin() {
     $('.wins').html(win);
   }
+  //evaluates if there is a user or computer win or loss
   function evaluate() {
+    crystalValue = sum;
     if((crystalValue > 0) && (crystalValue > mainRandom)) {
       loss++;
     } else if ((crystalValue > 0) && (crystalValue == mainRandom)){
       win++;
     }
   }
+  // tells user if there is a win or loss
+  function winOrLose() {
+    if(win == 1) {
+      alert('You Win');
+      youWin();
+    }
+    if(loss == 1) {
+      alert('You Lose');
+      computerWin();
+    }
+  }
+  // reset function that isn't working damn it
+  function reset () {
+    $(".computer-display").html(mainRandom);
+    $("user-display").html('0');
+  }
 
-  // click event
+  // click event starts game
   $('.crystal').on('click', function(e) {
     if(this.value == 0 ) {
       //sets value of click to random number between 1
+      console.log(this);  // console log for testing
       this.value = Math.floor(Math.random() * 12) + 1;
     }
-    // continually adds click value to sum value
-      sum += Number($(this).val());
-    // console log crystalValue for testing
-      console.log(this.value);
-    // adds sum value to user-display
-      crystalValue = sum;
+      // calculates sum value
+      calculateSum()
+      console.log(this.value); // console log for testing
+      // sets sum value in html
       sumDisplay();
+      // evaluates click value vs computer value
       evaluate();
-      if(win == 1) {
-        alert('You Win');
-        youWin();
-      }
-      if(loss == 1) {
-        alert('You Lose');
-        computerWin();
-      }
+      //establishes win or lose
+      winOrLose();
     });
-
-  // starts game with computer random number set and displayed
+  // starts game with coputer value displayed
   computerMatch();
 });
-
-  // evaluate();
-  // function evaluate() {
-  //   if((sum !== mainRandom) && (click === 4)) {
-  //     win++;
-  //     $('.wins').html(1);
-  //   }
-  // }
-  // set value of each crystal
