@@ -1,58 +1,50 @@
 // global variables
-var mainRandom = Math.floor(Math.random() * 101) + 19 ; //
+var mainRandom = 0;
 var win = 0;
 var loss = 0;
 var crystalValue = '';
 var sum = 0;
 
 $(document).ready(function() {
-
 // available functions
 
-  // set starting value for computer match
-  function computerMatch() {
-    $('.computer-display').html(mainRandom);
-  }
   // sets click value in html
   function sumDisplay() {
     $('.user-display').html(sum);
   }
+  // set starting value for computer match
+  function computerMatch() {
+    mainRandom = Math.floor(Math.random() * 101) + 19;
+    $('.computer-display').html(mainRandom);
+    sum = 0;
+    sumDisplay();
+    $('.crystal').each(function () {
+      this.value = 0;
+    });
+  }
   // sets loss value in html
   function computerWin() {
     $('.losses').html(loss);
+    alert('You\'ve Lost!')
   }
   // sets win value in html
   function youWin() {
     $('.wins').html(win);
+    alert('You\'ve Won!')
   }
-  //evaluates if there is a user or computer win or loss
+  //evaluates if there is a user or computer win or loss and restarts to the next level of the game
   function evaluate() {
     crystalValue = sum;
     if((crystalValue > 0) && (crystalValue > mainRandom)) {
       loss++;
-    } else if ((crystalValue > 0) && (crystalValue == mainRandom)){
-      win++;
-    }
-  }
-  // tells user if there is a win or loss
-  function winOrLose() {
-    if(win == 1) {
-      alert('You Win');
-      youWin();
-    }
-    if(loss == 1) {
-      alert('You Lose');
       computerWin();
+      computerMatch();
+    } else if ((crystalValue > 0) && (crystalValue == mainRandom)) {
+      win++;
+      youWin();
+      computerMatch();
     }
   }
-
-  // reset function that isn't working damn it
-  function reset () {
-    $(".computer-display").html(mainRandom);
-    $("user-display").html('0');
-  }
-
-  // click event starts game
   $('.crystal').on('click', function(e) {
     if(this.value == 0 ) {
       //sets value of click to random number between 1 and 12
@@ -65,8 +57,6 @@ $(document).ready(function() {
       sumDisplay();
       // evaluates click value vs computer value
       evaluate();
-      //establishes win or lose
-      winOrLose();
     });
   // starts game with computer value displayed
   computerMatch();
