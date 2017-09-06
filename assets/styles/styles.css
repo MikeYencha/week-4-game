@@ -7,6 +7,7 @@ body {
 }
 .jumbotron {
   background-color: maroon;
+  margin-top: 20px;
 }
 .header.jumbotron {
   padding: 24px;
