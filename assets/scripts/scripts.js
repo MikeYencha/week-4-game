@@ -37,12 +37,18 @@ $(document).ready(function() {
     crystalValue = sum;
     if((crystalValue > 0) && (crystalValue > mainRandom)) {
       loss++;
-      computerWin();
-      computerMatch();
+      setTimeout(function() {
+        computerWin();
+        computerMatch();
+      }, 100);
+      // computerWin();
+      // computerMatch();
     } else if ((crystalValue > 0) && (crystalValue == mainRandom)) {
       win++;
-      youWin();
-      computerMatch();
+      setTimeout(function() {
+        youWin();
+        computerMatch();
+      }, 100);
     }
   }
   $('.crystal').on('click', function(e) {
